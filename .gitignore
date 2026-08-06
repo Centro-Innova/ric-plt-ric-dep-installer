@@ -1,0 +1,6 @@
+*.log
+*.tar
+*.tgz
+*.swp
+*.lock
+.tox
