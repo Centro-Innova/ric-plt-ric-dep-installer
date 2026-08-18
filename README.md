@@ -35,7 +35,7 @@ All sub-chart dependencies are resolved using Helm's native `file://` repository
 
 + `microk8s` with a supported Kubernetes and Helm version.
 + Kubernetes 1.22 and above.
-+ Helm 3 and 4 are supported and above.
++ Helm 3.8+ and 4 are supported and above.
 
 This setup is tested on Ubuntu 22.04 with the following `microk8s` and `helm` versions.
 
