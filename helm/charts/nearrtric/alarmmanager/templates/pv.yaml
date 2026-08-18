@@ -31,4 +31,5 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /mnt/{{ include "common.pvname.alarmmanager" $topCtx }}
+    type: DirectoryOrCreate
 {{ end }}
