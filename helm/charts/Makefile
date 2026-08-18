@@ -18,7 +18,7 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OUTPUT_DIR := $(ROOT_DIR)/dist
 PACKAGE_DIR := $(OUTPUT_DIR)/packages
 SECRET_DIR := $(OUTPUT_DIR)/secrets
-HELM_BIN := helm
+HELM_BIN := microk8s helm
 
 # Helm v2 and helm v3 uses different version format so we first try in helm v3 format
 # and if it fails then we fallback to helm v2 one

@@ -20,7 +20,7 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 OUTPUT_DIR := $(ROOT_DIR)/dist
 PACKAGE_DIR := $(OUTPUT_DIR)/packages
 SECRET_DIR := $(OUTPUT_DIR)/secrets
-HELM_BIN := helm
+HELM_BIN := microk8s helm
 
 HELM_VER := $(shell $(HELM_BIN) version --template "{{.Version}}" 2>/dev/null)
 

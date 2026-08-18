@@ -33,9 +33,9 @@ All sub-chart dependencies are resolved using Helm's native `file://` repository
 
 ## Supported Versions
 
-+ `microk8s` with a supported Kubernetes version.
++ `microk8s` with a supported Kubernetes and Helm version.
 + Kubernetes 1.22 and above.
-+ Helm 4.2 and above.
++ Helm 3 and 4 are supported and above.
 
 This setup is tested on Ubuntu 22.04 with the following `microk8s` and `helm` versions.
 
@@ -50,15 +50,15 @@ $ microk8s kubectl version --client
 Client Version: v1.32.3
 Server Version: v1.32.3
 
-$ helm version
-version.BuildInfo{Version:"v4.2.3", GitCommit:"912ebc1cd10d38d340f048efaf0abda047c3468e", ...}
+$ microk8s helm version
+version.BuildInfo{Version:"v3.20.2", GitCommit:"8fb76d6ab555577e98e23b7500009537a471feee", ...}
 ```
 
 ## Getting Started
 
 ### Setup and Pre-requisites
 
-These instructions assume that `microk8s` and `helm` are installed. If you are behind an HTTP proxy, set `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` before proceeding so that Kubernetes can pull container images.
+These instructions assume that `microk8s` is installed. If you are behind an HTTP proxy, set `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` before proceeding so that Kubernetes can pull container images.
 
 ### Installing `microk8s`
 
@@ -84,15 +84,7 @@ For convenience you can alias `kubectl`:
 
 ```bash
 alias kubectl='microk8s kubectl'
-```
-
-### Installing Helm
-
-Download the latest Helm 4 release from [helm.sh/docs/intro/install](https://helm.sh/docs/intro/install/) or with `snap`:
-
-```bash
-sudo snap install helm --classic
-helm version
+alias helm='microk8s helm'
 ```
 
 ### Creating Platform and xApp Namespaces
@@ -113,6 +105,12 @@ Build all sub-charts and the umbrella chart with a single `make` command. No ext
 ```bash
 cd ric-plt-ric-dep/new-installer/helm/charts
 make nearrtric
+```
+
+By default `make` uses `microk8s helm`. To use a standalone Helm installation instead, override `HELM_BIN`:
+
+```bash
+make nearrtric HELM_BIN=helm
 ```
 
 The packaged umbrella chart is written to:
