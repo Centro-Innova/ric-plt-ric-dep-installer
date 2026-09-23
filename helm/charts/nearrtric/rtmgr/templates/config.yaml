@@ -46,6 +46,8 @@ data:
          "http://{{ include "common.servicename.appmgr.http" . }}:{{ include "common.serviceport.appmgr.http" . }}/ric/v1/xapps"
        "E2MURL":
          "http://{{ include "common.servicename.e2mgr.http" . }}:{{ include "common.serviceport.e2mgr.http" . }}/v1/e2t/list"
+       "SUBURL":
+         "http://{{ printf "%s.%s" (include "common.servicename.submgr.http" .) (include "common.namespace.platform" .) }}:{{ include "common.serviceport.submgr.http" . }}/"
        "RTFILE":
          "/db/rt.json"
        "CFGFILE":

@@ -79,7 +79,7 @@ a1mediator:
   a1mediator:
     # Enable following registry if you want to override just this one
     # while using local registry for the other registries
-    #registry: "nexus3.o-ran-sc.org:10004/o-ran-sc"
+    #registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
     image:
       registry: "docker.io"
       name: alexandrehuff/a1mediator
@@ -95,7 +95,7 @@ appmgr:
       appmgr:
         registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
         name: ric-plt-appmgr
-        tag: 0.5.7
+        tag: 0.5.10
       chartmuseum:
         registry: "docker.io"
         name: chartmuseum/chartmuseum
@@ -107,7 +107,7 @@ dbaas:
     image:
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
       name: ric-plt-dbaas
-      tag: 0.6.2
+      tag: 0.6.5
     enableHighAvailability: false
     # Enable pod anti affinity only if you have more than 3 k8s nodes
     enablePodAntiAffinity: false
@@ -118,7 +118,7 @@ e2mgr:
     image:
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
       name: ric-plt-e2mgr
-      tag: 6.0.1
+      tag: 6.0.8
     privilegedmode: false
     globalRicId:
       ricId: "AACCE"
@@ -135,7 +135,7 @@ e2term:
       image:
         registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
         name: ric-plt-e2
-        tag: 6.0.3
+        tag: 6.0.8
       privilegedmode: false
       hostnetworkmode: false
       env:
@@ -159,14 +159,14 @@ rtmgr:
     image:
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
       name: ric-plt-rtmgr
-      tag: 0.9.4
+      tag: 0.9.7
 
 submgr:
   submgr:
     image:
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
       name: ric-plt-submgr
-      tag: 0.9.5
+      tag: 0.10.7
 
 vespamgr:
   image:
@@ -179,14 +179,14 @@ o1mediator:
   image:
     registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
     name: ric-plt-o1
-    tag: 0.6.1
+    tag: 0.6.4
 
 
 alarmmanager:
   image:
     registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
     name: ric-plt-alarmmanager
-    tag: 0.5.14
+    tag: 0.5.17
 
 influxdb2:
   image:
@@ -201,14 +201,14 @@ xapp-onboarder:
   xapponboarder:
     image:
       xapponboarder:
-        registry: "nexus3.o-ran-sc.org:10004/o-ran-sc"
+        registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
         name: xapp-onboarder
-        tag: 1.0.8
+        tag: 1.0.7
 
 o1mediator:
   o1mediator:
     image:
       name: ric-plt-o1
-      tag: 0.6.2
+      tag: 0.6.4
       registry: "nexus3.o-ran-sc.org:10002/o-ran-sc"
 

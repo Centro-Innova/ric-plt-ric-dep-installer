@@ -52,4 +52,4 @@
 
 {{- define "common.serviceport.submgr.rmr.data" -}}4560{{- end -}}
 {{- define "common.serviceport.submgr.rmr.route" -}}4561{{- end -}}
-{{- define "common.serviceport.submgr.http" -}}8088{{- end -}}
+{{- define "common.serviceport.submgr.http" -}}8080{{- end -}}
