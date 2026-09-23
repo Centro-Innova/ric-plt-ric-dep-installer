@@ -103,7 +103,7 @@ microk8s kubectl create ns ricxapp
 Build all sub-charts and the umbrella chart with a single `make` command. No external chart server is needed — all local dependencies are resolved directly from the source tree via `file://` paths.
 
 ```bash
-cd ric-plt-ric-dep/new-installer/helm/charts
+cd ric-plt-ric-dep-installer/helm/charts
 make nearrtric
 ```
 
@@ -124,7 +124,7 @@ helm/charts/dist/packages/nearrtric-0.1.0.tgz
 Install using the packaged chart and an override file (noting the provided override file points to Alexandre Huff's updated A1 Mediator for enhanced xApp compatibility):
 
 ```bash
-helm install nearrtric -n ricplt \
+helm upgrade --install nearrtric -n ricplt \
   helm/charts/dist/packages/nearrtric-0.1.0.tgz \
   -f helm-overrides/nearrtric/minimal-nearrt-ric.yaml
 ```
