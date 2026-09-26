@@ -24,6 +24,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "common.configmapname.rtmgr" . }}-rtmgrcfg
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
 data:
   # FQDN and port info of the platform components for routing manager to form
   # and distribute corresponding routes to them
@@ -41,6 +46,10 @@ data:
            "name": "A1MEDIATOR"
            "fqdn": "{{ printf "%s.%s" (include "common.servicename.a1mediator.rmr" .) (include "common.namespace.platform" .) }}"
            "port": {{ include "common.serviceport.a1mediator.rmr.data" . }}
+         -
+           "name": "DYNSLICEXAPP"
+           "fqdn": "192.168.0.11"
+           "port": 4061
 
        "XMURL":
          "http://{{ include "common.servicename.appmgr.http" . }}:{{ include "common.serviceport.appmgr.http" . }}/ric/v1/xapps"
@@ -195,5 +204,6 @@ data:
          { 'messagetype': 'RIC_SERVICE_UPDATE', 'senderendpoint': '', 'subscriptionid': -1, 'endpoint': 'E2MAN', 'meid': ''},
          { 'messagetype': 'RIC_E2NODE_CONFIG_UPDATE', 'senderendpoint': '', 'subscriptionid': -1, 'endpoint': 'E2MAN', 'meid': ''},
          { 'messagetype': 'RIC_E2_RESET_REQ', 'senderendpoint': '', 'subscriptionid': -1, 'endpoint': 'E2MAN', 'meid': ''},
+         { 'messagetype': 'RIC_INDICATION', 'senderendpoint': '', 'subscriptionid': -1, 'endpoint': 'DYNSLICEXAPP', 'meid': ''},
           ]
 

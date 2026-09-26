@@ -61,6 +61,8 @@ spec:
             - mountPath: /cfg
               name: rtmgrcfg
               readOnly: true
+            - mountPath: /db
+              name: rtmgrdb
           ports:
             - name: "http"
               containerPort: {{ include "common.serviceport.rtmgr.http" . }}
@@ -91,3 +93,5 @@ spec:
               - key: rtmgrcfg
                 path: rtmgr-config.yaml
                 mode: 0644
+        - name: "rtmgrdb"
+          emptyDir: {}
