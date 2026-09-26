@@ -39,3 +39,7 @@ spec:
     port: {{ include "common.serviceport.submgr.http" . }}
     protocol: TCP
     targetPort: http
+  - name: http-subscription
+    port: 8088
+    protocol: TCP
+    targetPort: 8088

@@ -45,10 +45,10 @@ data:
       "e2tRecvMsgTimeout_ms": 2000
       "e2tMaxSubReqTryCount": 2
       "e2tMaxSubDelReqTryCount": 2
-      "checkE2State": "true"
-      "readSubsFromDb": "true"
+      "checkE2State": "false"
+      "readSubsFromDb": "false"
       "dbTryCount": 200
-      "dbRetryForever": "true"
+      "dbRetryForever": "false"
       "waitRouteCleanup_ms": 5000
   submgrutartg: |
       newrt|start
